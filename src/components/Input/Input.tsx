@@ -16,8 +16,8 @@ type Login = z.infer<typeof LoginSchema>;
 interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   isPassword?: boolean;
   label: string;
-  name: "email" | "password";
-  control: Control<Login>;
+  name: string;
+  control: Control<any>;
 }
 
 export function Input({
@@ -29,10 +29,8 @@ export function Input({
 }: InputProps) {
   const [onFocusEmail, setOnFocusEmail] = useState(false);
 
-  console.log("onFocusEmail", onFocusEmail);
-
   return !isPassword ? (
-    <div className="flex flex-col justify-center gap-1 text-white">
+    <div className="flex flex-col justify-center gap-1 text-[#F4F4F5]">
       <p className="text-lg">{label}</p>
 
       <Controller
@@ -42,16 +40,18 @@ export function Input({
         render={({ field }) => (
           <input
             {...field}
-            type="email"
             {...rest}
             onFocus={() => setOnFocusEmail((prev) => !prev)}
-            className="w-[250px] h-[32px] outline-none bg-transparent border-2 border-zinc-400 rounded-md px-2 placeholder:text-slate-300"
+            onBlur={() => setOnFocusEmail((prev) => !prev)}
+            className={`w-full h-[40px] outline-none bg-transparent border-2  rounded-md px-2 placeholder:text-slate-300 placeholder:font-light placeholder:text-base ${
+              onFocusEmail ? "border-[#e61957]" : "border-zinc-400"
+            }`}
           />
         )}
       />
     </div>
   ) : (
-    <div className="flex flex-col justify-center gap-1 text-white">
+    <div className="flex flex-col justify-center gap-1 text-[#F4F4F5]">
       <p className="text-lg">{label}</p>
 
       <Controller
@@ -63,7 +63,7 @@ export function Input({
             type="password"
             {...field}
             {...rest}
-            className="w-[250px] h-[32px] outline-none bg-transparent border-2 border-zinc-400 rounded-md px-2 placeholder:text-slate-300"
+            className="w-full h-[40px] outline-none bg-transparent border-2 border-zinc-400 rounded-md px-2 placeholder:text-slate-300 placeholder:font-light placeholder:text-base"
           />
         )}
       />
