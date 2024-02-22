@@ -60,10 +60,14 @@ export function Input({
         defaultValue={""}
         render={({ field }) => (
           <input
-            type="password"
             {...field}
             {...rest}
-            className="w-full h-[40px] outline-none bg-transparent border-2 border-zinc-400 rounded-md px-2 placeholder:text-slate-300 placeholder:font-light placeholder:text-base"
+            type="password"
+            onFocus={() => setOnFocusEmail((prev) => !prev)}
+            onBlur={() => setOnFocusEmail((prev) => !prev)}
+            className={`w-full h-[40px] outline-none bg-transparent border-2  rounded-md px-2 placeholder:text-slate-300 placeholder:font-light placeholder:text-base ${
+              onFocusEmail ? "border-[#e61957]" : "border-zinc-400"
+            }`}
           />
         )}
       />

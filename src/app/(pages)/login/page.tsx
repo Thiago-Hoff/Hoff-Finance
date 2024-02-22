@@ -1,7 +1,9 @@
 "use client";
 import { Input } from "@/components/Input/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { BaseSyntheticEvent } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
@@ -18,6 +20,8 @@ const LoginSchema = z.object({
 type Login = z.infer<typeof LoginSchema>;
 
 export default function Login() {
+  const router = useRouter();
+
   const {
     handleSubmit,
     control,
@@ -26,11 +30,27 @@ export default function Login() {
     resolver: zodResolver(LoginSchema),
   });
 
-  const handleSend = (data: Login, e?: BaseSyntheticEvent) => {
+  const handleSend = async (data: Login, e?: BaseSyntheticEvent) => {
     e?.preventDefault();
 
-    const { password, email } = data;
-    console.log("penis", data);
+    const { email, password } = data;
+
+    try {
+      const response = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (response?.error) {
+        console.log("erro no response", response);
+        return;
+      }
+
+      router.replace("/confirmEmail");
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
