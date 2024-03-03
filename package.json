@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@phosphor-icons/react": "^2.0.15",
     "@prisma/client": "^5.9.1",
     "apexcharts": "^3.44.0",
     "framer-motion": "^10.16.5",
