@@ -25,9 +25,7 @@ export default function Login() {
     resolver: zodResolver(LoginSchema),
   });
 
-  const handleSend = () => {
-    console.log("penis");
-  };
+  const handleSend = () => {};
 
   return (
     <div className="bg-[#141414] w-scren min-h-screen flex justify-center items-center">
