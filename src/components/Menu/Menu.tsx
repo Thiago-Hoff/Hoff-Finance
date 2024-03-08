@@ -1,6 +1,6 @@
 import { House, Icon } from "@phosphor-icons/react";
-import { ButtonHeader } from "../header/buttonHeader/ButtonHeader";
 import { ButtonMenu } from "../ButtonMenu/ButtonMenu";
+import { MenuItems } from "@/utils/dynamicContent";
 
 type ItemMenuProps = {
   id: number;
@@ -14,34 +14,10 @@ type MenuProps = {
 };
 
 export const Menu = () => {
-  const buttonHeader = [
-    {
-      id: 1,
-      label: "Home",
-      href: "#",
-      icon: {
-        IconComponente: House,
-        width: 30,
-        height: 30,
-        color: "#fff",
-      },
-    },
-    {
-      id: 2,
-      label: "Haaaome",
-      href: "#",
-      icon: {
-        IconComponente: House,
-        width: 30,
-        height: 30,
-        color: "#fff",
-      },
-    },
-  ];
   //
   return (
-    <div className={`absolute w-full bg-[#24282E] `}>
-      {buttonHeader.map((item) => (
+    <div className={`w-full mt-6 flex flex-col gap-4`}>
+      {MenuItems.map((item) => (
         <ButtonMenu
           key={item.id}
           href={item.href}

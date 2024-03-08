@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/header/Header";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 
 export default function DashboardLayout({
@@ -13,7 +13,7 @@ export default function DashboardLayout({
       className={`relative w-screen h-screen flex  flex-col md:flex-row
       `}
     >
-      <Header />
+      <Navbar />
 
       {children}
     </div>

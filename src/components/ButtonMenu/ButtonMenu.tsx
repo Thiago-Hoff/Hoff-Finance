@@ -20,23 +20,19 @@ export const ButtonMenu = ({ label, href, Icon }: ButtonMenuProps) => {
   return (
     <Link
       href={href}
-      className={`relative w-full h-10 text-lg text-white border-b-[1px] border-r-[1px] border-[#606569] flex items-center gap-3   ${
-        menuName === Path && "font-bold"
-      }  hover:bg-[#394a6b] transition-colors `}
+      className={` w-full h-10 flex items-center gap-3 p-2 rounded-lg hover:bg-[#2A3E59] ${
+        Path === menuName && "bg-[#3A4B62]"
+      } `}
     >
-      <div
-        className={` h-full w-14 flex items-center justify-center border-r-[1px] border-[#8b99a3] ${
-          menuName === Path && "bg-[#537ace]"
-        }`}
-      >
+      <div className="">
         <Icon.IconComponente
           width={Icon.width}
           height={Icon.height}
-          color={Icon.color}
+          color="#96A9BC"
         />
       </div>
 
-      <p className="w-3/5 flex   ">{label}</p>
+      <p className="w-3/5 flex text-[#96A9BC]  ">{label}</p>
     </Link>
   );
 };
