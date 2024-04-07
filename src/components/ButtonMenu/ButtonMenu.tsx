@@ -20,6 +20,7 @@ export const ButtonMenu = ({ label, href, Icon }: ButtonMenuProps) => {
   return (
     <Link
       href={href}
+      passHref
       className={` w-full h-10 flex items-center gap-3 p-2 rounded-lg hover:bg-[#2A3E59] ${
         Path === menuName && "bg-[#3A4B62]"
       } `}

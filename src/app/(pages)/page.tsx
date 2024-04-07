@@ -1,3 +1,1 @@
-import Login from "./login/page";
-
-export default Login();
+export { default } from "./login/page";

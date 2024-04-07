@@ -29,8 +29,6 @@ export function Input({
 }: InputProps) {
   const [onFocusEmail, setOnFocusEmail] = useState(false);
 
-  console.log("onFocusEmail", onFocusEmail);
-
   return !isPassword ? (
     <div className="flex flex-col justify-center gap-1 text-white">
       <p className="text-lg">{label}</p>

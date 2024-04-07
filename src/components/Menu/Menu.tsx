@@ -1,17 +1,5 @@
-import { House, Icon } from "@phosphor-icons/react";
 import { ButtonMenu } from "../ButtonMenu/ButtonMenu";
 import { MenuItems } from "@/utils/dynamicContent";
-
-type ItemMenuProps = {
-  id: number;
-  label: string;
-  href: string;
-  icon: Icon;
-};
-
-type MenuProps = {
-  Item: ItemMenuProps[];
-};
 
 export const Menu = () => {
   //
