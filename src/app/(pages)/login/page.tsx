@@ -55,7 +55,7 @@ export default function Login() {
             className="w-48 h-12 bg-[#FF004D] hover:bg-[#eb0023] transition-colors text-lg text-white font-medium rounded-lg"
             onClick={handleSubmit(handleSend)}
           >
-            Login
+            Loginaaaaaaa
           </button>
           <Link
             className="text-lg font-semibold text-[#86A7FC] hover:text-[#3468C0] transition-all"
